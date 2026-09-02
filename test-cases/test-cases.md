@@ -139,3 +139,88 @@ Se acepta un nombre de usuario que contiene espacios. No se reporta como defecto
 
 **Evidencia:**  
 `test-evidence/TC-SIGNUP-005-username-with-spaces.png`
+
+---
+
+## Módulo: Login
+
+### TC-LOGIN-001 — Inicio de sesión con campos vacíos
+
+**Tipo:** Funcional / Negativa  
+**Prioridad:** Alta  
+**Estado:** PASS
+
+**Precondición:**  
+La ventana de inicio de sesión se encuentra disponible.
+
+**Pasos:**
+1. Seleccionar **Log in**.
+2. Dejar Username vacío.
+3. Dejar Password vacío.
+4. Seleccionar **Log in**.
+
+**Resultado esperado:**  
+El sistema debe impedir el inicio de sesión cuando los campos obligatorios están vacíos.
+
+**Resultado actual:**  
+El sistema impide el inicio de sesión y muestra el mensaje `Please fill out Username and Password.`
+
+**Evidencia:**  
+`test-evidence/TC-LOGIN-001-empty-fields.png`
+
+---
+
+### TC-LOGIN-002 — Inicio de sesión con usuario inexistente
+
+**Tipo:** Funcional / Negativa  
+**Prioridad:** Alta  
+**Estado:** PASS
+
+**Datos de prueba:**  
+Username: `usuarioincorrecto`  
+Password: contraseña de prueba incorrecta.
+
+**Pasos:**
+1. Seleccionar **Log in**.
+2. Ingresar un nombre de usuario que no se encuentre registrado.
+3. Ingresar una contraseña.
+4. Seleccionar **Log in**.
+
+**Resultado esperado:**  
+El sistema debe impedir el inicio de sesión con un usuario inexistente.
+
+**Resultado actual:**  
+El sistema impide el inicio de sesión y muestra el mensaje `User does not exist.`
+
+**Evidencia:**  
+`test-evidence/TC-LOGIN-002-invalid-user.png`
+
+---
+
+### TC-LOGIN-003 — Inicio de sesión con contraseña incorrecta
+
+**Tipo:** Funcional / Negativa  
+**Prioridad:** Alta  
+**Estado:** PASS
+
+**Precondición:**  
+El usuario utilizado se encuentra registrado en la aplicación.
+
+**Datos de prueba:**  
+Username: `sergio1234`  
+Password: contraseña incorrecta.
+
+**Pasos:**
+1. Seleccionar **Log in**.
+2. Ingresar un usuario registrado.
+3. Ingresar una contraseña incorrecta.
+4. Seleccionar **Log in**.
+
+**Resultado esperado:**  
+El sistema debe impedir el inicio de sesión cuando la contraseña es incorrecta.
+
+**Resultado actual:**  
+El sistema impide el inicio de sesión y muestra el mensaje `Wrong password.`
+
+**Evidencia:**  
+`test-evidence/TC-LOGIN-003-wrong-password.png`
