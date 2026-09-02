@@ -336,3 +336,82 @@ Samsung Galaxy S6 se elimina correctamente, Nokia Lumia 1520 permanece en el car
 
 **Evidencia:**  
 `test-evidence/TC-CART-004-delete-product-update-total.png`
+
+---
+
+## Módulo: Proceso de compra
+
+### TC-ORDER-001 — Visualizar formulario de compra
+
+**Tipo:** Funcional / Positiva  
+**Prioridad:** Alta  
+**Estado:** PASS
+
+**Precondición:**  
+El carrito contiene al menos un producto.
+
+**Pasos:**
+1. Acceder a **Cart**.
+2. Verificar que exista un producto en el carrito.
+3. Seleccionar **Place Order**.
+4. Verificar el formulario de compra.
+
+**Resultado esperado:**  
+El sistema debe mostrar el formulario para completar la compra y conservar el total correspondiente al carrito.
+
+**Resultado actual:**  
+El formulario de compra se muestra correctamente con los campos Name, Country, City, Credit card, Month y Year. El total mostrado es 820.
+
+**Evidencia:**  
+`test-evidence/TC-ORDER-001-purchase-form.png`
+
+---
+
+### TC-ORDER-002 — Compra con campos obligatorios vacíos
+
+**Tipo:** Funcional / Negativa  
+**Prioridad:** Alta  
+**Estado:** PASS
+
+**Precondición:**  
+El formulario de compra se encuentra abierto.
+
+**Pasos:**
+1. Dejar los campos del formulario vacíos.
+2. Seleccionar **Purchase**.
+3. Verificar la respuesta del sistema.
+
+**Resultado esperado:**  
+El sistema debe impedir completar la compra cuando faltan los datos obligatorios.
+
+**Resultado actual:**  
+El sistema impide continuar y muestra el mensaje `Please fill out Name and Creditcard.`
+
+**Evidencia:**  
+`test-evidence/TC-ORDER-002-required-fields.png`
+
+---
+
+### TC-ORDER-003 — Realizar compra correctamente
+
+**Tipo:** Funcional / Positiva  
+**Prioridad:** Alta  
+**Estado:** PASS
+
+**Precondición:**  
+El carrito contiene un producto y el formulario de compra se encuentra disponible.
+
+**Pasos:**
+1. Seleccionar **Place Order**.
+2. Completar los datos requeridos para la compra utilizando datos de prueba.
+3. Seleccionar **Purchase**.
+4. Verificar la confirmación de la operación.
+
+**Resultado esperado:**  
+El sistema debe procesar la compra y mostrar una confirmación con los datos de la transacción.
+
+**Resultado actual:**  
+La compra se procesa correctamente y el sistema muestra `Thank you for your purchase!`, genera un ID de operación y muestra un importe de 820 USD.
+
+**Evidencia:**  
+`test-evidence/TC-ORDER-003-successful-purchase.png`
