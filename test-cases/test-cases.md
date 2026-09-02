@@ -224,3 +224,115 @@ El sistema impide el inicio de sesión y muestra el mensaje `Wrong password.`
 
 **Evidencia:**  
 `test-evidence/TC-LOGIN-003-wrong-password.png`
+
+---
+
+## Módulo: Carrito de compras
+
+### TC-CART-001 — Agregar producto al carrito
+
+**Tipo:** Funcional / Positiva  
+**Prioridad:** Alta  
+**Estado:** PASS
+
+**Precondición:**  
+La aplicación se encuentra disponible y el usuario puede acceder al catálogo de productos.
+
+**Pasos:**
+1. Ingresar a Product Store.
+2. Seleccionar el producto **Samsung Galaxy S6**.
+3. Seleccionar **Add to cart**.
+4. Acceder a **Cart**.
+5. Verificar el producto agregado.
+
+**Resultado esperado:**  
+El producto seleccionado debe aparecer en el carrito con su nombre y precio correspondientes.
+
+**Resultado actual:**  
+Samsung Galaxy S6 aparece correctamente en el carrito con un precio de 360 y el total mostrado es 360.
+
+**Evidencia:**  
+`test-evidence/TC-CART-001-add-product.png`
+
+---
+
+### TC-CART-002 — Eliminar producto del carrito
+
+**Tipo:** Funcional / Positiva  
+**Prioridad:** Alta  
+**Estado:** PASS
+
+**Precondición:**  
+El carrito contiene el producto Samsung Galaxy S6.
+
+**Pasos:**
+1. Acceder a **Cart**.
+2. Localizar Samsung Galaxy S6.
+3. Seleccionar **Delete**.
+4. Verificar el contenido del carrito.
+
+**Resultado esperado:**  
+El producto seleccionado debe ser eliminado del carrito.
+
+**Resultado actual:**  
+Samsung Galaxy S6 se elimina correctamente y el carrito queda vacío.
+
+**Evidencia:**  
+`test-evidence/TC-CART-002-delete-product.png`
+
+---
+
+### TC-CART-003 — Validar total con varios productos
+
+**Tipo:** Funcional / Positiva  
+**Prioridad:** Alta  
+**Estado:** PASS
+
+**Precondición:**  
+El usuario puede agregar productos al carrito.
+
+**Datos de prueba:**  
+Samsung Galaxy S6: 360  
+Nokia Lumia 1520: 820
+
+**Pasos:**
+1. Agregar Samsung Galaxy S6 al carrito.
+2. Agregar Nokia Lumia 1520 al carrito.
+3. Acceder a **Cart**.
+4. Verificar que ambos productos estén presentes.
+5. Verificar el valor mostrado en **Total**.
+
+**Resultado esperado:**  
+El sistema debe calcular correctamente la suma de los productos: 360 + 820 = 1180.
+
+**Resultado actual:**  
+Ambos productos aparecen en el carrito y el sistema muestra un total de 1180.
+
+**Evidencia:**  
+`test-evidence/TC-CART-003-multiple-products-total.png`
+
+---
+
+### TC-CART-004 — Actualizar total al eliminar un producto
+
+**Tipo:** Funcional / Positiva  
+**Prioridad:** Alta  
+**Estado:** PASS
+
+**Precondición:**  
+El carrito contiene Samsung Galaxy S6 (360) y Nokia Lumia 1520 (820), con un total de 1180.
+
+**Pasos:**
+1. Acceder a **Cart**.
+2. Eliminar Samsung Galaxy S6.
+3. Verificar que Nokia Lumia 1520 permanezca en el carrito.
+4. Verificar el nuevo valor de **Total**.
+
+**Resultado esperado:**  
+El sistema debe eliminar Samsung Galaxy S6 y recalcular el total a 820.
+
+**Resultado actual:**  
+Samsung Galaxy S6 se elimina correctamente, Nokia Lumia 1520 permanece en el carrito y el total se actualiza a 820.
+
+**Evidencia:**  
+`test-evidence/TC-CART-004-delete-product-update-total.png`
